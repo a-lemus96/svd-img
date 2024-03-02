@@ -29,3 +29,5 @@ class Matrix {
 
         void print() const;     // print the matrix
 }
+
+#endif
