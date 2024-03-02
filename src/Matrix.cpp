@@ -74,6 +74,7 @@ Matrix<T> Matrix<T>::operator-(const Matrix<T>& other) const {
     return result;
 }
 
+
 // product
 template<typename T>
 Matrix<T> Matrix<T>::operator*(const Matrix<T>& other) const {
@@ -95,4 +96,50 @@ Matrix<T> Matrix<T>::operator*(const Matrix<T>& other) const {
         }
     }
     return result;
+}
+
+
+// transpose
+template<typename T>
+Matrix<T> Matrix<T>::transpose() const {
+    Matrix<T> result(cols, rows);
+    for (int i = 0; i < rows; ++i) {
+        for (int j = 0; j < cols; ++j) {
+            result[j][i] = data[i][j];
+        }
+    }
+    return result;
+}
+
+
+// shape
+template<typename T>
+std::vector<int> Matrix<T>::shape() const {
+    return std::vector<int>{rows, cols};
+}
+
+
+// number of rows
+template<typename T>
+int Matrix<T>::nRows() const {
+    return rows
+}
+
+
+// number of rows
+template<typename T>
+int Matrix<T>::nCols() const {
+    return cols
+}
+
+
+// print matrix
+template<typename T>
+void Matrix<T>::print() const {
+    for (int i = 0; i < rows; ++i) {
+        for (int j = 0; j < cols; ++j) {
+            std::cout << data[i][j] << ' ';
+        }
+        std::cout << std::endl;
+    }
 }
