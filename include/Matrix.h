@@ -11,9 +11,10 @@ class Matrix {
         int cols;
 
     public:
-        Matrix(int nRows, int nCols);               // constructor
-        Matrix(const Matrix<T>& other);             // copy constructor
-        ~Matrix();                                  // destructor
+        Matrix(int nRows, int nCols);                           // constructors
+        Matrix(const std::vector<std::vector<T>>& initData);
+        Matrix(const Matrix<T>& other);
+        ~Matrix();                                              // destructor
 
         std::vector<T>& operator[](int row);                    // subscript
         const std::vector<T>& operator[](int row) const;

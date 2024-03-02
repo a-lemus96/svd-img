@@ -11,6 +11,14 @@ Matrix<T>::Matrix(int nRows, int nCols)
 }
 
 
+// value constructor
+template<typename T>
+Matrix<T>::Matrix(const std::vector<std::vector<T>>& initData)
+    : rows(initialData.size()),
+      cols(initialData[0].size(),
+      data = initialData {}
+
+
 // copy constructor
 template<typename T>
 Matrix<T>::Matrix(const Matrix<T>& other) 
