@@ -3,6 +3,7 @@
 
 #include  <vector>
 
+
 template <typename T>
 class Matrix {
     private:
@@ -29,6 +30,6 @@ class Matrix {
         int nCols() const;              // get number of cols
 
         void print() const;     // print the matrix
-}
+};
 
 #endif
