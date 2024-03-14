@@ -1,4 +1,4 @@
-#include <Matrix.h>
+#include "../include/Matrix.h"
 #include <iostream>
 
 
@@ -14,9 +14,9 @@ Matrix<T>::Matrix(int nRows, int nCols)
 // value constructor
 template<typename T>
 Matrix<T>::Matrix(const std::vector<std::vector<T>>& initData)
-    : rows(initialData.size()),
-      cols(initialData[0].size(),
-      data = initialData {}
+    : rows(initData.size()),
+      cols(initData[0].size()),
+      data(initData) {}
 
 
 // copy constructor
@@ -24,7 +24,7 @@ template<typename T>
 Matrix<T>::Matrix(const Matrix<T>& other) 
     : rows(other.rows), 
       cols(other.cols), 
-      data(oters.data) {}
+      data(other.data) {}
 
 
 // destructor
@@ -34,7 +34,7 @@ Matrix<T>::~Matrix() {}
 
 // subscript operator
 template<typename T>
-std::vector<T>& Matrix<T>::operator[](int row)
+std::vector<T>& Matrix<T>::operator[](int row) {
     return data[row];
 }
 
@@ -56,8 +56,8 @@ Matrix<T> Matrix<T>::operator+(const Matrix<T>& other) const {
     }
     Matrix<T> result(rows, cols);   // instantiate matrix to hold result
     // perform O(n^2) sum
-    for (int i = 0; i < rows, ++i) {
-        for (int j = 0; j < cols, ++j) {
+    for (int i = 0; i < rows; ++i) {
+        for (int j = 0; j < cols; ++j) {
             result[i][j] = data[i][j] + other[i][j]; // use overloaded subscript
         }
     }
@@ -74,8 +74,8 @@ Matrix<T> Matrix<T>::operator-(const Matrix<T>& other) const {
     }
     Matrix<T> result(rows, cols);   // instantiate matrix to hold result
     // perform O(n^2) sum
-    for (int i = 0; i < rows, ++i) {
-        for (int j = 0; j < cols, ++j) {
+    for (int i = 0; i < rows; ++i) {
+        for (int j = 0; j < cols; ++j) {
             result[i][j] = data[i][j] - other[i][j]; // use overloaded subscript
         }
     }
@@ -89,11 +89,11 @@ Matrix<T> Matrix<T>::operator*(const Matrix<T>& other) const {
     // sanity check
     if (cols != other.rows) {
         throw std::invalid_argument(
-                "Number of cols in left matrix must equal number of rows in right matrix."
+                "Number of cols in left matrix must equal number of rows in right matrix.");
     }
     Matrix<T> result(rows, other.cols); // instantiate matrix for holding result
     // perform O(n^3) matrix product algorithm
-    <T> temp;   // stores partial sums
+    T temp;   // stores partial sums
     for (int i = 0; i < rows; ++i) {
         for (int j = 0; j < cols; ++j) {
             temp = 0;
@@ -130,14 +130,14 @@ std::vector<int> Matrix<T>::shape() const {
 // number of rows
 template<typename T>
 int Matrix<T>::nRows() const {
-    return rows
+    return rows;
 }
 
 
 // number of rows
 template<typename T>
 int Matrix<T>::nCols() const {
-    return cols
+    return cols;
 }
 
 

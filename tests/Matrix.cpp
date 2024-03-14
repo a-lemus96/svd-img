@@ -1,5 +1,5 @@
 #include <gtest/gtest.h>
-#include "Matrix.h"
+#include "../include/Matrix.h"
 
 // constructor
 TEST(MatrixTest, ConstructorTest) {
